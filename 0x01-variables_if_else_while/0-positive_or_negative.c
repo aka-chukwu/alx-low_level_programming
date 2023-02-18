@@ -15,15 +15,16 @@ int main(void)
 {
     int n;
 
-    srand(time(NULL)); // Seed the random number generator with current time
-    n = rand() % 201 - 100; // Generate a random number between -100 and 100
+    srand(time(0)); // Seed the random number generator with current time
+    n = rand() - RAND_MAX/2; // Generate a random number
 
     // Print whether the number is positive or negative
-    if (n >= 0)
+    if (n > 0)
         printf("%d is a positive number\n", n);
-    else
+    else if (n < 0)
         printf("%d is a negative number\n", n);
-
+    else
+	printf("%d is zero\n", n)
     return (0);
 }
 
