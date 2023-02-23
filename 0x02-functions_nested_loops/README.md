@@ -1,1 +1,1 @@
-this is about loops in c
+God is good
