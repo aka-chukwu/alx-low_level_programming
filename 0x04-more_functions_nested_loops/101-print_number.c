@@ -1,48 +1,21 @@
 #include "main.h"
 
 /**
- * print_number - prints an integer
- * @n: random integer
+ * print_number - prints an integer to stdout using _putchar function
+ * @n: the integer to print
+ *
  * Return: void
  */
 void print_number(int n)
 {
-	char ld, cr;
-	int r;
-	int ct = 0;
-
-	if (n < 0)
-	{
-		_putchar ('-');
-		ld = (char)('0' - (n % 10));
-		n = n / -10;
-	}
-
-	else
-	{
-		ld = (char)((n % 10) + '0');
-		n = n / 10;
-	}
-
-	r = 0;
-	while (n > 0)
-	{
-		r = r * 10 + (n % 10);
-		n = n / 10;
-		ct++;
-	}
-
-	while (r > 0)
-	{
-		cr = (char)((r % 10) + '0');
-		_putchar(cr);
-		r = r / 10;
-		ct--;
-	}
-	while (ct != 0)
-	{
-		_putchar('0');
-		ct--;
-	}
-	_putchar(ld);
+    if (n < 0) /* Handle negative numbers */
+    {
+        _putchar('-');
+        n = -n;
+    }
+    if (n / 10)
+    {
+        print_number(n / 10); /* Recursively print each digit */
+    }
+    _putchar(n % 10 + '0'); /* Convert the digit to a character and print it */
 }
